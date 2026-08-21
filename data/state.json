@@ -1,7 +1,7 @@
 {
  "schema": 4,
  "sprint": "KFHE Sprint 6",
- "updatedAt": "2026-08-21T04:31:34.161Z",
+ "updatedAt": "2026-08-21T04:32:23.063Z",
  "users": {
   "mostafa": {
    "name": "Mostafa",
@@ -24,15 +24,15 @@
    "color": "#0A6E8A",
    "photo": "IB",
    "pw": {
-    "salt": "vfRsP5UVleiJQGxkuPp+gg==",
-    "hash": "ocw5cgGzdg8okuhErf7WQ2rgm4kIR4zCY1lx5twiktw=",
+    "salt": "NwyEzB2HlTXaZ9bwW+oMHQ==",
+    "hash": "VetKhqunUTez1ed5mCfkXhmG2badWoisiiJgbp1CAno=",
     "iter": 150000
    },
    "createdAt": 1755561723000,
    "createdBy": "mostafa"
   }
  },
- "usersAt": 0,
+ "usersAt": 1787286742811,
  "issues": {
   "KFHE-3392": {
    "d": "todo",
@@ -504,6 +504,14 @@
   }
  },
  "activity": [
+  {
+   "t": 1787286742811,
+   "u": "mostafa",
+   "k": "TEAM",
+   "f": "team",
+   "a": "",
+   "b": "issued a new password for Ibrahim"
+  },
   {
    "t": 1787286688754,
    "u": "mostafa",
