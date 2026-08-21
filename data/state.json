@@ -1,7 +1,7 @@
 {
  "schema": 4,
  "sprint": "KFHE Sprint 6",
- "updatedAt": "2026-08-21T04:31:20.334Z",
+ "updatedAt": "2026-08-21T04:31:34.161Z",
  "users": {
   "mostafa": {
    "name": "Mostafa",
@@ -224,12 +224,12 @@
    "by": ""
   },
   "KFHE-3278": {
-   "d": "todo",
+   "d": "prog",
    "b": "pending",
    "u": "notrev",
    "o": "ibrahim",
    "z": "",
-   "at": 1787286674930,
+   "at": 1787286688754,
    "by": "mostafa"
   },
   "KFHE-3360": {
@@ -504,6 +504,14 @@
   }
  },
  "activity": [
+  {
+   "t": 1787286688754,
+   "u": "mostafa",
+   "k": "KFHE-3278",
+   "f": "design",
+   "a": "todo",
+   "b": "prog"
+  },
   {
    "t": 1787286674930,
    "u": "mostafa",
