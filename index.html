@@ -2529,10 +2529,31 @@ paintThemeIcon();
 loadLocal();
 buildGate();
 (async function boot(){
-  try{ const rem = await ghRead(); if(!rem.missing){ SHA=rem.sha; adopt(rem.doc); paintGateUsers(); } }catch(e){}
-  let sess=null, tok="";
-  try{ sess=localStorage.getItem("kfhe-session"); tok=localStorage.getItem("kfhe-gh-token")||""; }catch(e){}
-  if(sess && ROSTER[sess]){ picked=sess; $("#gToken").value=tok; enter(sess, tok); }
+
+  try {
+
+    const { data } = await window.kfhSupabase.auth.getSession();
+
+    if(data && data.session && data.session.user){
+
+      console.log(
+        "Existing Supabase session:",
+        data.session.user.email
+      );
+
+      await enter();
+
+    }
+
+  } catch(e) {
+
+    console.error(
+      "Supabase session check failed:",
+      e
+    );
+
+  }
+
 })();
 console.log("KFH Egypt Sprint 6 board · v5 · 52 issues");
 </script>
