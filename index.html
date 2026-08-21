@@ -564,36 +564,67 @@ html[data-theme="dark"] .gprim{color:#08210F}
 <!-- ================= SIGN IN ================= -->
 <div class="gate" id="gate">
   <div class="gcard">
+
     <div class="gbrand">
       <img id="gateLogo" src="" alt="KFH Egypt">
+
       <div>
         <h2>Design Delivery Board</h2>
         <p>KFH Egypt · Sprint 6</p>
       </div>
     </div>
-    <div class="gstep on" id="step1">
-      <p class="glabel">Who are you?</p>
-      <div class="gusers" id="gUsers"></div>
-    </div>
-    <div class="gstep" id="step2">
-      <button class="gback" id="gBack">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        Not you?</button>
-      <div class="gwho" id="gWho"></div>
+
+    <div class="gstep on" id="loginStep">
+
+      <p class="glabel">Email address</p>
+
+      <input
+        id="loginEmail"
+        type="email"
+        placeholder="Enter your KFH email"
+        autocomplete="email"
+        spellcheck="false"
+      >
+
       <p class="glabel">Password</p>
+
       <div class="gpw">
-        <input id="gPass" type="password" placeholder="Enter your board password" autocomplete="current-password">
-        <button class="eye" id="gEye" type="button" aria-label="Show password">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+        >
+
+        <button
+          class="eye"
+          id="loginEye"
+          type="button"
+          aria-label="Show password"
+        >
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
         </button>
       </div>
-      <div class="gtok" id="gTokWrap">
-        <p class="glabel">GitHub token <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink-4)">— only to save</span></p>
-        <input id="gToken" type="password" placeholder="github_pat_… or ghp_…" spellcheck="false" autocomplete="off">
-        <p class="gnote">Viewers don't need one. Saving for the team needs <b>Contents: Read and write</b> on <b>KFHE-Sprint-6</b>. Stored only in this browser.</p>
+
+      <div class="gerr" id="loginError"></div>
+
+      <div class="gacts">
+        <button class="gprim" id="loginButton">
+          Sign in
+        </button>
       </div>
-      <div class="gerr" id="gErr"></div>
-      <div class="gacts"><button class="gprim" id="gGo">Enter board</button></div>
+
     </div>
   </div>
 </div>
@@ -2324,49 +2355,153 @@ function buildGate(){
     $("#gPass").value=""; showStep(2);
   });
   $("#gBack").addEventListener("click",()=>{ picked=null; showStep(1); });
-  $("#gGo").addEventListener("click",submitLogin);
-  $("#gPass").addEventListener("keydown",e=>{ if(e.key==="Enter") submitLogin(); });
-  $("#gToken").addEventListener("keydown",e=>{ if(e.key==="Enter") submitLogin(); });
-  $("#gEye").addEventListener("click",()=>{ const i=$("#gPass"); i.type=i.type==="password"?"text":"password"; i.focus(); });
-}
-async function submitLogin(){
-  if(!picked) return showStep(1);
-  const go2=$("#gGo"), pass=$("#gPass").value, tok=$("#gToken").value.trim();
-  $("#gErr").classList.remove("on"); go2.disabled=true; go2.textContent="Checking…";
-  try{
-    const ok = await verifyPw(pass, ROSTER[picked].pw);
-    if(!ok){ go2.disabled=false; go2.textContent="Enter board"; $("#gPass").select();
-      return gErr("That password is not right. Ask an admin to issue you a new one if you have lost it."); }
-  }catch(err){ go2.disabled=false; go2.textContent="Enter board"; return gErr("Could not check the password: "+esc(err.message)); }
-  await enter(picked, tok);
-}
-async function enter(uid, token){
-  const go2=$("#gGo"); go2.disabled=true; go2.textContent="Connecting…";
-  TOKEN = token || ""; RO = !TOKEN;
-  ME = userById(uid);
-  if(!role(ME).fields.length) RO = true;
-  try{
-    const rem = await ghRead();
-    if(rem.missing){
-      if(!RO && isAdmin()){ await ghWrite("Initialise Sprint 6 board state and team"); setSync("ok","Board created"); }
-      else setSync(RO?"ro":"ok", RO?"Live from GitHub":"No board file yet");
-    } else {
-      SHA = rem.sha; adopt(rem.doc); lastPushed=""; ME = userById(uid) || ME;
-      setSync(RO?"ro":"ok", RO?"Live from GitHub":"Synced");
-    }
-  }catch(e){
-    if(TOKEN && /token rejected/.test(e.message)){
-      go2.disabled=false; go2.textContent="Enter board";
-      return gErr("GitHub rejected that token. It needs <b>Contents: Read and write</b> on <b>KFHE-Sprint-6</b>.");
-    }
-    setSync("err","Offline — local only");
-    setTimeout(()=>toast("Could not reach GitHub — working from this browser only", ICON_WARN), 800);
+  // ============================================
+// SUPABASE LOGIN
+// ============================================
+
+$("#loginButton").addEventListener("click", loginWithSupabase);
+
+$("#loginPassword").addEventListener("keydown", e => {
+  if (e.key === "Enter") loginWithSupabase();
+});
+
+$("#loginEmail").addEventListener("keydown", e => {
+  if (e.key === "Enter") loginWithSupabase();
+});
+
+$("#loginEye").addEventListener("click", () => {
+  const input = $("#loginPassword");
+
+  input.type = input.type === "password"
+    ? "text"
+    : "password";
+
+  input.focus();
+});
+
+
+async function loginWithSupabase(){
+
+  const email = $("#loginEmail").value.trim();
+  const password = $("#loginPassword").value;
+
+  const button = $("#loginButton");
+  const error = $("#loginError");
+
+  error.classList.remove("on");
+
+  if(!email || !password){
+    error.textContent = "Please enter your email and password.";
+    error.classList.add("on");
+    return;
   }
+
+  button.disabled = true;
+  button.textContent = "Signing in…";
+
   try{
-    localStorage.setItem("kfhe-session", uid);
-    if(TOKEN) localStorage.setItem("kfhe-gh-token", TOKEN); else localStorage.removeItem("kfhe-gh-token");
-  }catch(e){}
-  start();
+
+    const { data, error: authError } =
+      await window.kfhSupabase.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
+
+    if(authError){
+      throw authError;
+    }
+
+    if(!data.session || !data.user){
+      throw new Error("No authenticated session was returned.");
+    }
+
+    console.log("Supabase login successful:", data.user.email);
+
+await enter();
+
+  }catch(err){
+
+    console.error("Supabase login failed:", err);
+
+    error.textContent =
+      err.message === "Invalid login credentials"
+        ? "Incorrect email or password."
+        : "Unable to sign in. Please try again.";
+
+    error.classList.add("on");
+
+    button.disabled = false;
+    button.textContent = "Sign in";
+  }
+}
+   
+async function enter(){
+
+  const button = $("#loginButton");
+
+  button.disabled = true;
+  button.textContent = "Connecting…";
+
+  try {
+
+    const { data, error } =
+      await window.kfhSupabase.auth.getSession();
+
+    if(error){
+      throw error;
+    }
+
+    if(!data.session || !data.session.user){
+      throw new Error("No active Supabase session.");
+    }
+
+    const user = data.session.user;
+
+    console.log("Authenticated Supabase user:", user.email);
+
+    /*
+     * Temporary board identity.
+     * We are using this only while we move away
+     * from the old predefined-user system.
+     */
+    ME = {
+      id: user.id,
+      name: user.email,
+      email: user.email,
+      role: "admin",
+      color: "#1A9B49",
+      fields: []
+    };
+
+    RO = true;
+    TOKEN = "";
+
+    localStorage.setItem(
+      "kfhe-session",
+      JSON.stringify({
+        id: user.id,
+        email: user.email
+      })
+    );
+
+    $("#gate").classList.add("hide");
+
+    start();
+
+  } catch(err) {
+
+    console.error("Could not initialize Supabase session:", err);
+
+    const error = $("#loginError");
+
+    error.textContent =
+      "Signed in, but the board could not be opened. Please try again.";
+
+    error.classList.add("on");
+
+    button.disabled = false;
+    button.textContent = "Sign in";
+  }
 }
 function start(){
   $("#gate").classList.add("hide");
