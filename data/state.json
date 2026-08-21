@@ -1,0 +1,507 @@
+{
+ "schema": 4,
+ "sprint": "KFHE Sprint 6",
+ "updatedAt": "2026-08-21T04:30:16.443Z",
+ "users": {
+  "mostafa": {
+   "name": "Mostafa",
+   "role": "admin",
+   "ini": "MO",
+   "color": "#4B45C6",
+   "photo": "MO",
+   "pw": {
+    "salt": "RuYB/5NBEcB4wrGu64aYDw==",
+    "hash": "z8KgiibWw7S0YuYzkhAbL3whHj7hD7OiPYxHxP41Woc=",
+    "iter": 150000
+   },
+   "createdAt": 1755561723000,
+   "createdBy": "system"
+  },
+  "ibrahim": {
+   "name": "Ibrahim",
+   "role": "designer",
+   "ini": "IB",
+   "color": "#0A6E8A",
+   "photo": "IB",
+   "pw": {
+    "salt": "vfRsP5UVleiJQGxkuPp+gg==",
+    "hash": "ocw5cgGzdg8okuhErf7WQ2rgm4kIR4zCY1lx5twiktw=",
+    "iter": 150000
+   },
+   "createdAt": 1755561723000,
+   "createdBy": "mostafa"
+  }
+ },
+ "usersAt": 0,
+ "issues": {
+  "KFHE-3392": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3393": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3394": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3395": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3396": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-310": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-311": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3458": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3448": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-190": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3300": {
+   "d": "prog",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-201": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3488": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3356": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3255": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3256": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3257": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3258": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3259": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3260": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3261": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3278": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3360": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-71": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-72": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-74": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-75": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-76": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-80": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-100": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-102": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-154": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-145": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3307": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3333": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3465": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-159": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3473": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3474": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-149": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3475": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3503": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3504": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3505": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3506": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3512": {
+   "d": "prog",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3513": {
+   "d": "done",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3514": {
+   "d": "prog",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-167": {
+   "d": "prog",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-170": {
+   "d": "prog",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-173": {
+   "d": "prog",
+   "b": "pending",
+   "u": "notrev",
+   "o": "ibrahim",
+   "z": "",
+   "at": 0,
+   "by": ""
+  },
+  "KFHE-3321": {
+   "d": "todo",
+   "b": "pending",
+   "u": "notrev",
+   "o": "mostafa",
+   "z": "",
+   "at": 0,
+   "by": ""
+  }
+ },
+ "activity": []
+}
