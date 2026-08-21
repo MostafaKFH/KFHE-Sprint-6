@@ -548,6 +548,17 @@ html[data-theme="dark"] .gprim{color:#08210F}
   .tbl{box-shadow:none}
 }
 </style>
+   <!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  window.KFH_SUPABASE_URL = 'https://gfafiuvounfaigpamgjb.supabase.co';
+  window.KFH_SUPABASE_KEY = 'sb_publishable_uWQ5khUGsjQTJR2pX7mBXg_D9qUoj1i';
+
+  window.kfhSupabase = window.supabase.createClient(
+    window.KFH_SUPABASE_URL,
+    window.KFH_SUPABASE_KEY
+  );
+</script>
 </head>
 <body>
 <!-- ================= SIGN IN ================= -->
